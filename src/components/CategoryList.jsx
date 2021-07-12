@@ -5,7 +5,10 @@ const CategoryList = ({ categories }) => {
     <div>
       {categories.map((category) => {
         return (
-          <Link to={`/reviews/${category.slug}`}> | {category.slug} | </Link>
+          <Link key={category.slug} to={`/reviews/${category.slug}`}>
+            {' '}
+            | {category.slug} |{' '}
+          </Link>
         );
       })}
     </div>

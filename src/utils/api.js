@@ -33,3 +33,13 @@ export const getReviewById = (reviewId) => {
       return response.data.review;
     });
 };
+
+export const getReviewComments = (reviewId) => {
+  return axios
+    .get(
+      `https://house-of-games-app.herokuapp.com/api/reviews/${reviewId}/comments`
+    )
+    .then((response) => {
+      return response.data.comments;
+    });
+};
