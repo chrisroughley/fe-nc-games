@@ -4,6 +4,7 @@ import Nav from './components/Nav';
 import Home from './components/Home';
 import AllReviews from './components/AllReviews';
 import CategoryReviews from './components/CategoryReviews';
+import Review from './components/Review';
 import { useState } from 'react';
 
 function App() {
@@ -32,6 +33,9 @@ function App() {
             categories={categories}
             setCategories={setCategories}
           ></CategoryReviews>
+        </Route>
+        <Route exact path='/review/:review_id'>
+          <Review></Review>
         </Route>
         <Route>
           <p>404 - not found</p>
