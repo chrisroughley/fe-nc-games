@@ -19,16 +19,21 @@ const Review = () => {
   }, []);
   useEffect(() => {
     getReviewComments(review_id).then((response) => {
-      setComments(response);
+      if (Array.isArray(response)) {
+        setComments(response);
+      }
     });
   }, []);
 
   const incVotes = (reviewId) => {
-    patchReview(reviewId);
     setNewVote((currentVotes) => currentVotes + 1);
+    patchReview(reviewId).catch((err) => {
+      alert('oops something went wrong');
+      setNewVote(0);
+    });
   };
   return (
-    <div>
+    <div className='review-page'>
       <h1>{review.title}</h1>
       <p>{review.review_body}</p>
       <p>
@@ -43,18 +48,12 @@ const Review = () => {
         </button>{' '}
         comments: {comments.length}
       </p>
-      {user.username ? (
-        <Comments
-          comments={comments}
-          setComments={setComments}
-          review_id={review_id}
-        ></Comments>
-      ) : (
-        <p>
-          You must be signed in to view comments.
-          <Link to='/users'>Sign in.</Link>
-        </p>
-      )}
+
+      <Comments
+        comments={comments}
+        setComments={setComments}
+        review_id={review_id}
+      ></Comments>
     </div>
   );
 };

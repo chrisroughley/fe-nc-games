@@ -5,11 +5,15 @@ import { useContext } from 'react';
 const Nav = () => {
   const { user } = useContext(UserContext);
   return (
-    <div className='component '>
-      <div className='container nav'>
-        <Link to='/'>Home</Link>
-        <h2 className='nav-heading'>Nav</h2>
-        <Link to='/users'>User: {user.username}</Link>
+    <div className='nav '>
+      <div className='container nav-container'>
+        <Link to='/' className='nav-link home-link'>
+          Home
+        </Link>
+
+        <Link to='/users' className='nav-link'>
+          LOGIN {user.username}
+        </Link>
       </div>
     </div>
   );

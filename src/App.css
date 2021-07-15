@@ -1,26 +1,347 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;700&display=swap');
+
+body {
+  background-color: rgb(20, 20, 20);
 }
 
-.component {
-  background-color: aquamarine;
+body::-webkit-scrollbar {
+  width: 14px;
+  height: 14px;
+  background-color: rgba(240, 248, 255, 0);
+}
+body::-webkit-scrollbar-track {
+  display: none;
+}
+body::-webkit-scrollbar-thumb {
+  height: 6px;
+  width: 15px;
+  border: 4px solid rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  background-color: rgba(146, 146, 146, 0.445);
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(109, 109, 109, 0.479);
+}
+
+body::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+  display: none;
+}
+body::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+.App {
+  min-height: 100vh;
+}
+.home-img {
+  background-image: url('../src/wallpapersden.com_chess-game_2880x1800.jpg');
+  background-position-y: 25%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  max-height: 100vh;
+  min-height: 100vh;
+}
+
+.section {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  margin-left: 0px;
+  margin-right: 0px;
 }
 
 .container {
   margin-left: auto;
   margin-right: auto;
+  display: block;
   max-width: 1200px;
-  background-color: rgb(85, 115, 197);
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 .nav {
+  position: fixed;
+  min-width: 100vw;
+  height: 60px;
+  background-color: rgba(0, 0, 0, 0.692);
+}
+
+.nav-container {
+  min-width: 80vw;
+
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  position: static;
-  height: 60px;
 }
 
-.nav-heading {
+.nav-link {
+  color: white;
+  text-decoration: none;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.home-link {
+  font-family: 'Inter', sans-serif;
+  font-weight: 200;
+}
+
+.hero-section {
+  padding-top: 20vh;
+  padding-bottom: 20vh;
+}
+
+.home-title {
+  color: white;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 70px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.home-second-title {
+  color: white;
+  font-family: 'Inter', sans-serif;
+  padding-left: 30px;
+  padding-right: 30px;
+  font-weight: 200;
+  font-size: 25px;
+  margin-bottom: 40px;
+}
+
+@media only screen and (max-width: 800px) {
+  .home-title {
+    font-size: 50px;
+  }
+  .home-second-title {
+    font-size: 16px;
+  }
+
+  .category-img {
+    color: white;
+  }
+}
+
+.reviews-link {
+  background-color: rgba(0, 92, 128, 0.644);
+  text-decoration: none;
+  color: white;
+  padding: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.content-container {
+  background-color: rgb(243, 243, 243);
+  margin-left: 50px;
+  margin-right: 50px;
+
+  margin-bottom: auto;
+  border-radius: 5px;
+  /* box-shadow: 0px 0px 40px black; */
+}
+
+.carousel {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: white;
+  box-shadow: 0 0 30px;
+  border-radius: 2px;
+}
+
+.category-title {
+  margin: 0px;
+  color: rgb(0, 0, 0);
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 40px;
+  text-align: center;
+  margin-top: 0px;
+}
+
+.category-list {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+
+  padding-left: 0px;
+  overflow-x: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.category-container {
+  padding: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.category {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  background-image: url('https://d8jyfye76ik7i.cloudfront.net/gallery/blog/thumbs/get-started-in-cardistry.jpg');
+  background-size: cover;
+  list-style: none;
+  text-decoration: none;
+}
+
+.link {
+  text-decoration: none;
+  color: white;
+}
+
+.category-img {
+  display: flex;
+  height: 200px;
+  width: 350px;
+  align-items: flex-end;
+  justify-content: space-around;
+  background-image: url('https://d8jyfye76ik7i.cloudfront.net/gallery/blog/thumbs/get-started-in-cardistry.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  color: rgba(255, 255, 255, 0);
+  transition: 0.3s;
+  font-family: 'Inter', sans-serif;
+  font-weight: 200;
+}
+
+.category-img:hover {
+  color: white;
+  transform: scale(1.1);
+
+  /* box-shadow: 0 0 15px rgb(32, 52, 58); */
+}
+
+.category-link {
+  color: rgba(255, 255, 255, 0.822);
+  font-family: 'Inter', sans-serif;
+  padding: 15px;
+  font-size: 20px;
+  font-weight: 200;
+  transition: 0.3s;
+}
+
+.category-link:hover {
+  background-color: teal;
+  color: black;
+}
+
+.category-nav {
+  display: flex;
+  flex-direction: row;
+  padding: 100px 30px 30px 30px;
+}
+
+.category-selector {
+  display: flex;
+  overflow-wrap: normal;
+}
+
+.reviews {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-auto-rows: 350px;
+  padding: 15px;
+  gap: 40px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 100px;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.list-banner {
+  display: flex;
+  background-image: url('./scrabble_game_in_progress.jpg');
+  background-position-y: 40%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  max-height: 50vh;
+  min-height: 50vh;
+  background-color: teal;
+}
+
+.review-card {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(224, 231, 236);
+  /* max-width: 300px; */
+  /* box-shadow: 0 0 15px rgba(255, 255, 255, 0.13); */
+  color: black;
+  transition: 0.3s;
+}
+
+.review-card:hover {
+  transform: scale(1.1);
+}
+
+.test {
+  border-radius: 0px;
+  border-width: 0px;
+  background-color: teal;
+  max-height: 40px;
+  padding-left: 10px;
+}
+
+.review-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  position: absolute;
+  transform: translate(0px, -44px);
+  color: rgb(255, 255, 255);
+  background-color: rgba(0, 0, 0, 0.609);
+  padding: 10px;
+  gap: 5px;
+}
+
+.review-link {
+  text-decoration: none;
+  color: black;
+  font-family: 'Inter', sans-serif;
+  font-weight: 200;
+}
+.review-card-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.review-card-title {
   margin-bottom: 5px;
+}
+.review-date {
+  margin-top: auto;
+}
+
+.page-header {
+  height: 80px;
+  margin-top: auto;
+  width: 100%;
+  background-color: rgba(0, 56, 78, 0.644);
+}
+
+.page-title {
+  color: rgba(255, 255, 255, 0.822);
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  padding-top: 20px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.review-page {
+  color: white;
 }

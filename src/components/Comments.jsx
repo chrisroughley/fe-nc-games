@@ -2,20 +2,22 @@ import { UserContext } from '../user';
 import { useContext, useState, useEffect } from 'react';
 import { postComment, deleteComment, patchComment } from '../utils/api';
 import Comment from './Comment';
+import MakeComment from './MakeComment';
 
 const Comments = ({ comments, setComments, review_id }) => {
   const { user } = useContext(UserContext);
   const [comment, setComment] = useState('');
   const [newComment, setNewComment] = useState('');
 
-  const handleChange = (event) => {
-    setNewComment(event.target.value);
-  };
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    setComment(newComment);
-  };
+  // const handleChange = (event) => {
+  //   setNewComment(event.target.value);
+  // };
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   setComment(newComment);
+  // };
   const handleDelete = (commentId) => {
+    const check = window.confirm('are you sure?');
     setComments((currentComments) => {
       return currentComments.filter(
         (currentComment) => currentComment.comment_id !== commentId
@@ -25,6 +27,7 @@ const Comments = ({ comments, setComments, review_id }) => {
   };
 
   useEffect(() => {
+    console.log('test:' + comment);
     if (comment.length > 0) {
       postComment(review_id, { username: user.username, body: comment }).then(
         (response) => {
@@ -62,7 +65,12 @@ const Comments = ({ comments, setComments, review_id }) => {
           <p>Be the first to write a comment!</p>
         )}
       </ul>
-      <form
+      <MakeComment
+        setComment={setComment}
+        setNewComment={setNewComment}
+        newComment={newComment}
+      ></MakeComment>
+      {/* <form
         onSubmit={(event) => {
           handleSubmit(event);
         }}
@@ -77,7 +85,7 @@ const Comments = ({ comments, setComments, review_id }) => {
           }}
         />
         <button>Submit</button>
-      </form>
+      </form> */}
     </div>
   );
 };

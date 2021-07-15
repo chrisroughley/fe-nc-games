@@ -1,25 +1,30 @@
 import axios from 'axios';
 
+const gamesApi = axios.create({
+  baseURL: 'https://house-of-games-app.herokuapp.com/api',
+});
+
 export const getCategories = () => {
-  return axios
-    .get('https://house-of-games-app.herokuapp.com/api/categories')
-    .then((response) => {
-      return response.data.categories;
-    });
+  return gamesApi.get('/categories').then((response) => {
+    return response.data.categories;
+  });
 };
 
-export const getReviews = () => {
-  return axios
-    .get('https://house-of-games-app.herokuapp.com/api/reviews')
+export const getReviews = (query) => {
+  return gamesApi
+    .get(query ? `/reviews?sort_by=${query}` : '/reviews')
     .then((response) => {
       return response.data.reviews;
     });
 };
 
-export const getReviewsByCategory = (category) => {
-  return axios
+export const getReviewsByCategory = (category, query) => {
+  console.log(query);
+  return gamesApi
     .get(
-      `https://house-of-games-app.herokuapp.com/api/reviews?category=${category}`
+      query
+        ? `/reviews?category=${category}&sort_by=${query}`
+        : `/reviews?category=${category}`
     )
     .then((response) => {
       return response.data.reviews;

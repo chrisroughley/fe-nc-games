@@ -1,15 +1,19 @@
 import { useEffect, useState, useContext } from 'react';
+import { useHistory } from 'react-router-dom';
 import { UserContext } from '../user';
 import { getUsers } from '../utils/api';
 
 const Users = () => {
   const [userList, setUserList] = useState([]);
   const { setUser } = useContext(UserContext);
+  const history = useHistory();
+
   useEffect(() => {
     getUsers().then((response) => {
       setUserList(response);
     });
   }, []);
+
   const handleSubmit = (event, selectedUser) => {
     if (selectedUser.username)
       setUser({
@@ -18,6 +22,7 @@ const Users = () => {
         avatar: selectedUser.avatar_url,
       });
     event.preventDefault();
+    history.goBack();
   };
   console.log(userList);
   return (

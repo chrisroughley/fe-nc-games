@@ -1,16 +1,33 @@
 import { Link } from 'react-router-dom';
 
-const CategoryList = ({ categories }) => {
+const CategoryList = ({ categories, category: selectedCategory }) => {
   return (
     <div>
-      {categories.map((category) => {
-        return (
-          <Link key={category.slug} to={`/reviews/${category.slug}`}>
-            {' '}
-            | {category.slug} |{' '}
-          </Link>
-        );
-      })}
+      <div className='container category-selector'>
+        {categories.map((category) => {
+          return (
+            <Link
+              key={category.slug}
+              to={`/reviews/${category.slug}`}
+              className='link category-link'
+              style={{
+                backgroundColor: category.slug === selectedCategory && 'teal',
+              }}
+            >
+              {category.slug}
+            </Link>
+          );
+        })}
+        <Link
+          to='/reviews'
+          className='link category-link'
+          style={{
+            backgroundColor: undefined === selectedCategory && 'teal',
+          }}
+        >
+          All reviews
+        </Link>
+      </div>
     </div>
   );
 };
