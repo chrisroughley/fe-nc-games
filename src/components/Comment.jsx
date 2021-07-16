@@ -1,5 +1,6 @@
 import { patchComment } from '../utils/api';
 import { useState } from 'react';
+
 const Comment = ({ comment }) => {
   const [newVote, setNewVote] = useState(0);
 
@@ -13,12 +14,10 @@ const Comment = ({ comment }) => {
     });
   };
   return (
-    <div>
-      <h3>
-        {comment.author}:{comment.comment_id}
-      </h3>
-      <p>{comment.body}</p>
-      <p>
+    <div className='comment-box'>
+      <h3 className='comment-content'>{comment.author}</h3>
+      <p className='comment-content'>{comment.body}</p>
+      <p className='comment-content comment-vote'>
         {comment.votes + newVote}
         <button
           id={comment.comment_id}

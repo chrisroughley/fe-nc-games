@@ -1,10 +1,10 @@
 import { UserContext } from '../user';
 import { useContext, useState, useEffect } from 'react';
-import { postComment, deleteComment, patchComment } from '../utils/api';
+import { postComment, deleteComment } from '../utils/api';
 import Comment from './Comment';
 import MakeComment from './MakeComment';
 
-const Comments = ({ comments, setComments, review_id }) => {
+const Comments = ({ comments, setComments, review_id, commentsNumber }) => {
   const { user } = useContext(UserContext);
   const [comment, setComment] = useState('');
   const [newComment, setNewComment] = useState('');
@@ -44,12 +44,12 @@ const Comments = ({ comments, setComments, review_id }) => {
 
   return (
     <div>
-      <h2>Comments</h2>
+      <h2>Comments: {commentsNumber}</h2>
       <ul>
         {Array.isArray(comments) ? (
           comments.map((comment) => {
             return (
-              <li key={comment.comment_id}>
+              <li key={comment.comment_id} className='comment-list'>
                 <Comment comment={comment}></Comment>
                 {user.username === comment.author && (
                   <button
@@ -72,22 +72,6 @@ const Comments = ({ comments, setComments, review_id }) => {
         setNewComment={setNewComment}
         newComment={newComment}
       ></MakeComment>
-      {/* <form
-        onSubmit={(event) => {
-          handleSubmit(event);
-        }}
-      >
-        <label htmlFor='comment'>Comment on this review: </label>
-        <input
-          type='text'
-          name='comment'
-          value={newComment}
-          onChange={(event) => {
-            handleChange(event);
-          }}
-        />
-        <button>Submit</button>
-      </form> */}
     </div>
   );
 };

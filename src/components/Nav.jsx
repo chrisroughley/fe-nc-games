@@ -10,7 +10,6 @@ const Nav = () => {
         <Link to='/' className='nav-link home-link'>
           Home
         </Link>
-
         <Link to='/users' className='nav-link'>
           LOGIN {user.username}
         </Link>

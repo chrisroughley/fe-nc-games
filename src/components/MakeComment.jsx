@@ -42,18 +42,3 @@ const MakeComment = ({ setComment, setNewComment, newComment }) => {
 };
 
 export default MakeComment;
-
-// {
-//   user.username ? (
-//     <Comments
-//       comments={comments}
-//       setComments={setComments}
-//       review_id={review_id}
-//     ></Comments>
-//   ) : (
-//     <p>
-//       You must be signed in to view comments.
-//       <Link to='/users'>Sign in.</Link>
-//     </p>
-//   );
-// }

@@ -1,13 +1,10 @@
 import { useEffect, useState } from 'react';
 
 const OrderSelector = ({ setQuery, category }) => {
-  const [selected, setSelected] = useState('');
   const handleChange = (event) => {
     setQuery(event.target.value);
-    setSelected(event.target.value);
   };
   useEffect(() => {
-    setSelected('');
     setQuery('');
   }, [category]);
   return (
@@ -15,7 +12,6 @@ const OrderSelector = ({ setQuery, category }) => {
       onChange={(event) => {
         handleChange(event);
       }}
-      value={selected}
       className='test'
     >
       <option value=''>Sort By</option>

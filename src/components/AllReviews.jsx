@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import ReviewsList from './ReviewsList';
 import CategoryList from './CategoryList';
 import OrderSelector from './OrderSelector';
@@ -36,7 +36,6 @@ const AllReviews = ({
       </div>
       <div class='category-nav'>
         <CategoryList categories={categories}></CategoryList>
-        {/* <h1>All Reviews</h1> */}
         <OrderSelector setQuery={setQuery}></OrderSelector>
       </div>
 

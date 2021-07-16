@@ -1,6 +1,6 @@
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
-import Nav from './components/Nav';
+
 import Home from './components/Home';
 import AllReviews from './components/AllReviews';
 import CategoryReviews from './components/CategoryReviews';
@@ -9,7 +9,7 @@ import Review from './components/Review';
 import { useState } from 'react';
 import { UserContext } from './user';
 
-function App({ history }) {
+function App() {
   const [reviews, setReviews] = useState([]);
   const [categories, setCategories] = useState([]);
   const [user, setUser] = useState({});
@@ -17,7 +17,6 @@ function App({ history }) {
 
   return (
     <UserContext.Provider value={{ user, setUser }}>
-      {/* <Nav></Nav> */}
       <Switch>
         <Route exact path='/'>
           <Home categories={categories} setCategories={setCategories}></Home>

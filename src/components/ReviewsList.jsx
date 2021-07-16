@@ -8,7 +8,12 @@ const ReviewsList = ({ reviews }) => {
         return (
           <li key={review.title} className='review-card'>
             <Link to={`/review/${review.review_id}`} className='review-link'>
-              <img src={review.review_img_url} width='100%' height='200px' />
+              <img
+                src={review.review_img_url}
+                alt={review.title}
+                width='100%'
+                height='200px'
+              />
               <div className='review-stats'>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'

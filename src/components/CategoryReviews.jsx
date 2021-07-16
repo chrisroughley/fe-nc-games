@@ -43,12 +43,10 @@ const CategoryReviews = ({
           categories={categories}
           category={category}
         ></CategoryList>
-        {/* <h1>All Reviews</h1> */}
+
         <OrderSelector setQuery={setQuery}></OrderSelector>
       </div>
-      {/* <CategoryList categories={categories} category={category}></CategoryList>
-      <h1>{category} reviews</h1>
-      <OrderSelector setQuery={setQuery} category={category}></OrderSelector> */}
+
       <ReviewsList reviews={reviews}></ReviewsList>
     </div>
   );
