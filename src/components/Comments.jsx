@@ -9,21 +9,23 @@ const Comments = ({ comments, setComments, review_id }) => {
   const [comment, setComment] = useState('');
   const [newComment, setNewComment] = useState('');
 
-  // const handleChange = (event) => {
-  //   setNewComment(event.target.value);
-  // };
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   setComment(newComment);
-  // };
   const handleDelete = (commentId) => {
-    const check = window.confirm('are you sure?');
-    setComments((currentComments) => {
-      return currentComments.filter(
-        (currentComment) => currentComment.comment_id !== commentId
-      );
-    });
-    deleteComment(commentId);
+    const check = window.confirm(
+      'are you sure you want to delete this comment?'
+    );
+    if (check) {
+      deleteComment(commentId)
+        .then(() => {
+          setComments((currentComments) => {
+            return currentComments.filter(
+              (currentComment) => currentComment.comment_id !== commentId
+            );
+          });
+        })
+        .catch((err) => {
+          alert('oops something went wrong');
+        });
+    }
   };
 
   useEffect(() => {

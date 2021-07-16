@@ -6,7 +6,11 @@ const Comment = ({ comment }) => {
   const incVote = (event) => {
     setNewVote((currentVote) => currentVote + 1);
     event.target.disabled = true;
-    patchComment(event.target.id).then(() => {});
+    patchComment(event.target.id).catch((err) => {
+      alert('oops something went wrong');
+      setNewVote(0);
+      event.target.disabled = false;
+    });
   };
   return (
     <div>
