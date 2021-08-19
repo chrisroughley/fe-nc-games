@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { getCategories } from '../utils/api';
 import Nav from './Nav';
+import CategoryCarousel from './CategoryCarousel';
 
 const Home = ({ categories, setCategories }) => {
   useEffect(() => {
@@ -23,8 +24,11 @@ const Home = ({ categories, setCategories }) => {
           </Link>
         </div>
       </div>
+      {/* <CategoryCarousel
+        categories={categories}
+        setCategories={setCategories}
+      ></CategoryCarousel> */}
       <div className='carousel container'>
-        {/* <h2 className='category-title'>Categories</h2> */}
         <svg
           xmlns='http://www.w3.org/2000/svg'
           width='80'
