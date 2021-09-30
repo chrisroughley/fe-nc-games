@@ -1,7 +1,7 @@
-import { useEffect, useState, useContext } from 'react';
-import { useHistory } from 'react-router-dom';
-import { UserContext } from '../user';
-import { getUsers } from '../utils/api';
+import { useEffect, useState, useContext } from "react";
+import { useHistory } from "react-router-dom";
+import { UserContext } from "../user";
+import { getUsers } from "../utils/api";
 
 const Users = () => {
   const [userList, setUserList] = useState([]);
@@ -10,6 +10,7 @@ const Users = () => {
 
   useEffect(() => {
     getUsers().then((response) => {
+      console.log(response);
       setUserList(response);
     });
   }, []);

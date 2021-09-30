@@ -9,7 +9,7 @@ const CategoryCarousel = ({ categories, setCategories }) => {
       setIsLoading(() => false);
       setCategories(response);
     });
-  }, []);
+  }, [setCategories]);
   if (isLoading) return <p style={{ color: 'white' }}>Loading...</p>;
   return (
     <div className='carousel container'>

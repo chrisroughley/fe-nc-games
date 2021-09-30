@@ -1,8 +1,8 @@
-import { Link } from 'react-router-dom';
-import { useEffect } from 'react';
-import { getCategories } from '../utils/api';
-import Nav from './Nav';
-import CategoryCarousel from './CategoryCarousel';
+import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { getCategories } from "../utils/api";
+import Nav from "./Nav";
+import CategoryCarousel from "./CategoryCarousel";
 
 const Home = ({ categories, setCategories }) => {
   useEffect(() => {
@@ -11,15 +11,15 @@ const Home = ({ categories, setCategories }) => {
     });
   }, []);
   return (
-    <div className='home-img'>
+    <div className="home-img">
       <Nav></Nav>
-      <div className='section hero-section'>
-        <div className='container'>
-          <h1 className='home-title'>NC Games Reviews.</h1>
-          <h2 className='home-second-title'>
+      <div className="hero-section">
+        <div className="container">
+          <h1 className="home-title">NC Games Reviews.</h1>
+          <h2 className="home-second-title">
             A review site for the latin speaking board game connoisseur
           </h2>
-          <Link to='/reviews' className='reviews-link'>
+          <Link to="/reviews" className="reviews-link">
             View Reviews
           </Link>
         </div>
@@ -28,7 +28,7 @@ const Home = ({ categories, setCategories }) => {
         categories={categories}
         setCategories={setCategories}
       ></CategoryCarousel> */}
-      <div className='carousel container'>
+      {/* <div className='carousel container'>
         <svg
           xmlns='http://www.w3.org/2000/svg'
           width='80'
@@ -56,7 +56,7 @@ const Home = ({ categories, setCategories }) => {
         >
           <path d='M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z' />
         </svg>
-      </div>
+      </div> */}
     </div>
   );
 };
