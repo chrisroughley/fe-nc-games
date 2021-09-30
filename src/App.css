@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;700&display=swap");
 
 body {
   background-color: rgb(20, 20, 20);
@@ -44,7 +44,7 @@ body::-webkit-scrollbar-corner {
   min-height: 100vh;
 }
 .home-img {
-  background-image: url('../src/wallpapersden.com_chess-game_2880x1800.jpg');
+  background-image: url("../src/wallpapersden.com_chess-game_2880x1800.jpg");
   background-position-y: 25%;
   background-size: cover;
   background-repeat: no-repeat;
@@ -92,18 +92,19 @@ body::-webkit-scrollbar-corner {
 }
 
 .home-link {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 200;
 }
 
 .hero-section {
-  padding-top: 20vh;
-  padding-bottom: 20vh;
+  height: 100vh;
+  display: flex;
+  align-items: center;
 }
 
 .home-title {
   color: white;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 700;
   font-size: 70px;
   margin-top: 0px;
@@ -114,7 +115,7 @@ body::-webkit-scrollbar-corner {
 
 .home-second-title {
   color: white;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   padding-left: 30px;
   padding-right: 30px;
   font-weight: 200;
@@ -168,7 +169,7 @@ body::-webkit-scrollbar-corner {
 .category-title {
   margin: 0px;
   color: rgb(0, 0, 0);
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 700;
   font-size: 40px;
   text-align: center;
@@ -195,7 +196,7 @@ body::-webkit-scrollbar-corner {
   margin-top: 20px;
   margin-bottom: 20px;
   margin-left: 20px;
-  background-image: url('https://d8jyfye76ik7i.cloudfront.net/gallery/blog/thumbs/get-started-in-cardistry.jpg');
+  background-image: url("https://d8jyfye76ik7i.cloudfront.net/gallery/blog/thumbs/get-started-in-cardistry.jpg");
   background-size: cover;
   list-style: none;
   text-decoration: none;
@@ -212,12 +213,12 @@ body::-webkit-scrollbar-corner {
   width: 350px;
   align-items: flex-end;
   justify-content: space-around;
-  background-image: url('https://d8jyfye76ik7i.cloudfront.net/gallery/blog/thumbs/get-started-in-cardistry.jpg');
+  background-image: url("https://d8jyfye76ik7i.cloudfront.net/gallery/blog/thumbs/get-started-in-cardistry.jpg");
   background-size: contain;
   background-repeat: no-repeat;
   color: rgba(255, 255, 255, 0);
   transition: 0.3s;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 200;
 }
 
@@ -230,7 +231,7 @@ body::-webkit-scrollbar-corner {
 
 .category-link {
   color: rgba(255, 255, 255, 0.822);
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   padding: 15px;
   font-size: 20px;
   font-weight: 200;
@@ -244,13 +245,29 @@ body::-webkit-scrollbar-corner {
 
 .category-nav {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: center;
   padding: 100px 30px 30px 30px;
+}
+
+@media only screen and (max-width: 800px) {
+  .category-nav {
+    padding: 15px 15px 15px 15px;
+  }
+}
+
+.category-container {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  max-width: 1230px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 .category-selector {
   display: flex;
-  overflow-wrap: normal;
+  overflow: scroll;
 }
 
 .reviews {
@@ -268,7 +285,7 @@ body::-webkit-scrollbar-corner {
 
 .list-banner {
   display: flex;
-  background-image: url('./scrabble_game_in_progress.jpg');
+  background-image: url("./scrabble_game_in_progress.jpg");
   background-position-y: 40%;
   background-size: cover;
   background-repeat: no-repeat;
@@ -291,12 +308,24 @@ body::-webkit-scrollbar-corner {
   transform: scale(1.1);
 }
 
-.test {
+.order-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1200px;
+}
+
+.order-selector {
   border-radius: 0px;
   border-width: 0px;
   background-color: teal;
   max-height: 40px;
+
+  max-width: 100px;
   padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .review-stats {
@@ -313,7 +342,7 @@ body::-webkit-scrollbar-corner {
 .review-link {
   text-decoration: none;
   color: black;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 200;
 }
 .review-card-text {
@@ -331,6 +360,8 @@ body::-webkit-scrollbar-corner {
 }
 
 .page-header {
+  display: flex;
+  align-items: center;
   height: 80px;
   margin-top: auto;
   width: 100%;
@@ -339,12 +370,17 @@ body::-webkit-scrollbar-corner {
 
 .page-title {
   color: rgba(255, 255, 255, 0.822);
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 700;
   font-size: 30px;
-  padding-top: 20px;
   margin-top: auto;
   margin-bottom: auto;
+}
+
+@media only screen and (max-width: 800px) {
+  .page-title {
+    font-size: 16px;
+  }
 }
 
 .review-page {
@@ -352,17 +388,20 @@ body::-webkit-scrollbar-corner {
 }
 .review-header {
   display: flex;
+  padding: 0 30px 0 30px;
   flex-direction: row;
   justify-content: space-between;
+  width: 100%;
 }
 
 .review-like {
-  margin-top: 20px;
-  margin-bottom: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 .review-content {
   padding-top: 3vh;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   margin-top: 30px;
   margin-bottom: 100px;
 }

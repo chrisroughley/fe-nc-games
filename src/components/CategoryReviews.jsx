@@ -1,11 +1,11 @@
-import { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { getCategories } from '../utils/api';
-import CategoryList from './CategoryList';
-import ReviewsList from './ReviewsList';
-import OrderSelector from './OrderSelector';
-import Nav from './Nav';
-import { getReviewsByCategory } from '../utils/api';
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { getCategories } from "../utils/api";
+import CategoryList from "./CategoryList";
+import ReviewsList from "./ReviewsList";
+import OrderSelector from "./OrderSelector";
+import Nav from "./Nav";
+import { getReviewsByCategory } from "../utils/api";
 
 const CategoryReviews = ({
   reviews,
@@ -20,31 +20,32 @@ const CategoryReviews = ({
     getCategories().then((response) => {
       setCategories(response);
     });
-  }, []);
+  }, [setCategories]);
 
   useEffect(() => {
     getReviewsByCategory(category, query).then((response) => {
       setReviews(response);
     });
-  }, [category, query]);
+  }, [category, query, setReviews]);
 
   return (
     <div>
       <Nav></Nav>
-      <div className='list-banner'>
-        <div className='page-header'>
-          <div className='container'>
-            <p className='page-title'>{category} Reviews</p>
+      <div className="list-banner">
+        <div className="page-header">
+          <div className="container">
+            <p className="page-title">{category} Reviews</p>
           </div>
         </div>
       </div>
-      <div class='category-nav'>
+      <div class="category-nav">
         <CategoryList
           categories={categories}
           category={category}
+          setQuery={setQuery}
         ></CategoryList>
 
-        <OrderSelector setQuery={setQuery}></OrderSelector>
+        {/* <OrderSelector setQuery={setQuery}></OrderSelector> */}
       </div>
 
       <ReviewsList reviews={reviews}></ReviewsList>

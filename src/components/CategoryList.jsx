@@ -1,17 +1,18 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import OrderSelector from "./OrderSelector";
 
-const CategoryList = ({ categories, category: selectedCategory }) => {
+const CategoryList = ({ categories, category: selectedCategory, setQuery }) => {
   return (
     <div>
-      <div className='container category-selector'>
+      <div className="category-container category-selector">
         {categories.map((category) => {
           return (
             <Link
               key={category.slug}
               to={`/reviews/${category.slug}`}
-              className='link category-link'
+              className="link category-link"
               style={{
-                backgroundColor: category.slug === selectedCategory && 'teal',
+                backgroundColor: category.slug === selectedCategory && "teal",
               }}
             >
               {category.slug}
@@ -19,15 +20,16 @@ const CategoryList = ({ categories, category: selectedCategory }) => {
           );
         })}
         <Link
-          to='/reviews'
-          className='link category-link'
+          to="/reviews"
+          className="link category-link"
           style={{
-            backgroundColor: undefined === selectedCategory && 'teal',
+            backgroundColor: undefined === selectedCategory && "teal",
           }}
         >
           All reviews
         </Link>
       </div>
+      <OrderSelector setQuery={setQuery}></OrderSelector>
     </div>
   );
 };
