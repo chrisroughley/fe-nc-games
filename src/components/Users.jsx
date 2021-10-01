@@ -27,7 +27,7 @@ const Users = () => {
   };
   console.log(userList);
   return (
-    <div>
+    <div className="users-container">
       <h1>Users</h1>
       <ul>
         {userList.map((user) => {
