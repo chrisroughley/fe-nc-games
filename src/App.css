@@ -186,7 +186,7 @@ body::-webkit-scrollbar-corner {
   scrollbar-width: none;
 }
 .category-container {
-  padding: 30px;
+  padding: 15px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -238,6 +238,13 @@ body::-webkit-scrollbar-corner {
   transition: 0.3s;
 }
 
+@media only screen and (max-width: 800px) {
+  .category-link {
+    font-size: 14px;
+    white-space: nowrap;
+  }
+}
+
 .category-link:hover {
   background-color: teal;
   color: black;
@@ -267,7 +274,28 @@ body::-webkit-scrollbar-corner {
 
 .category-selector {
   display: flex;
-  overflow: scroll;
+  overflow-y: hidden;
+  overflow-x: scroll;
+}
+
+.category-selector::-webkit-scrollbar {
+  width: 14px;
+  height: 14px;
+  background-color: rgba(240, 248, 255, 0);
+}
+
+.category-selector::-webkit-scrollbar-thumb {
+  height: 6px;
+  width: 15px;
+  border: 4px solid rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  background-color: rgba(146, 146, 146, 0.445);
+}
+
+.category-selector::-webkit-scrollbar-track {
+  display: none;
 }
 
 .reviews {
@@ -292,6 +320,13 @@ body::-webkit-scrollbar-corner {
   max-height: 50vh;
   min-height: 50vh;
   background-color: teal;
+}
+
+@media only screen and (max-width: 800px) {
+  .list-banner {
+    min-height: 30vh;
+    max-height: 30vh;
+  }
 }
 
 .review-card {
@@ -392,6 +427,9 @@ body::-webkit-scrollbar-corner {
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .review-like {
@@ -427,8 +465,34 @@ body::-webkit-scrollbar-corner {
 }
 
 .comment-vote {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   margin-top: auto;
   margin-bottom: 30px;
+  font-weight: bold;
+}
+
+.comment-like {
+  border-style: none;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.comment-button {
+  border-radius: 0px;
+  background-color: rgba(0, 92, 128, 0.644);
+  border-style: none;
+  margin-left: 15px;
+  padding: 10px;
+  color: aliceblue;
+}
+
+.comment-input {
+  border-radius: 0px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(139, 139, 139);
+  padding: 8px;
 }
 
 .like-button {

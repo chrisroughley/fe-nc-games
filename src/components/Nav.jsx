@@ -11,7 +11,7 @@ const Nav = () => {
           Home
         </Link>
         <Link to="/users" className="nav-link">
-          LOGIN {user.username}
+          {user.username || "LOGIN"}
         </Link>
       </div>
     </div>
