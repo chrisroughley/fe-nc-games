@@ -27,24 +27,27 @@ const Users = () => {
   };
   console.log(userList);
   return (
-    <div className="users-container">
-      <h1>Users</h1>
-      <ul>
-        {userList.map((user) => {
-          return (
-            <li key={user.username}>
-              <button
-                value={user}
-                onClick={(event) => {
-                  handleSubmit(event, user);
-                }}
-              >
-                {user.username}
-              </button>
-            </li>
-          );
-        })}
-      </ul>
+    <div className="users">
+      <div className="users-container">
+        <h1>Users</h1>
+        <ul className="users-list">
+          {userList.map((user) => {
+            return (
+              <li key={user.username}>
+                <img src={user.avatar_url} alt="" className="user-avatar" />
+                <button
+                  value={user}
+                  onClick={(event) => {
+                    handleSubmit(event, user);
+                  }}
+                >
+                  {user.username}
+                </button>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     </div>
   );
 };
